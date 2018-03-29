@@ -4,8 +4,8 @@ var Word = require("./Word");
 var Player = require("./Player");
 var Letter = require("./Letter");
 var Start = require("./start");
-var newWord = Start.currentWord;
-// var chosenWord = new Word(newWord);
+var newWord = new Start;;
+var chosenWord = newWord.currentWord;
 var currentPlayer = new Player;
 
 inquirer.prompt([
@@ -24,7 +24,7 @@ inquirer.prompt([
 
 
 function startGame(){
-    console.log(newWord);
+    console.log(chosenWord);
     // if(chosenWord.lettersGuessed.length >= currentPlayer.guessesLeft){
     //     console.log ("You are out of guesses! Try again!");
     //     return;
@@ -35,7 +35,7 @@ function startGame(){
     //         message: "Guess a letter!",
     //         name: "userInput"
     //     }
-    //         ]).then(function(response) {
+    //         ]).then(function(answers) {
     //             // Pick a word --DONE AT THE BEGINNING OF THIS FUNCTION
     //             // Replace letters with underscore
     //             // Display to screen

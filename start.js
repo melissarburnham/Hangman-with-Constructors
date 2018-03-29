@@ -1,21 +1,19 @@
 var Word = require("./Word");
 
-   var  wordbank = ["pitbull", "dachshund", "golden retriever", "labrador retriever", 
+function Start(){
+    this.wordbank = ["pitbull", "dachshund", "golden retriever", "labrador retriever", 
     "beagle", "bulldog", "great dane", "poodle", "husky", "chihuahua", "boxer", "pug", "border collie"];
 
-    var randomWord = wordbank[ Math.floor(Math.random() * wordbank.length)];
+    this.randomWord = this.wordbank[ Math.floor(Math.random() * this.wordbank.length)];
     
-    var wordPick = new Word(randomWord);
-    var currentWord = wordPick.wordGuessed();
+    this.wordPick = new Word(this.randomWord);
+    this.currentWord = this.wordPick.wordGuessed();
     // var currentWordPick = currentWord.toString();
     // console.log(currentWord);
-
-    
-	
+}
 
 
-
-exports.currentWord = currentWord;
+module.exports = Start;
 
 
 
