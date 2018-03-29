@@ -27,7 +27,7 @@ Word.prototype.findLetter = function(letterGuess){
 	for(var i = 0; i < this.lettersArr.length; i++){ 
 		var correctLetter = this.lettersArr[i].letter;
 		if(letterGuess === correctLetter){
-		Letter.display = true;
+		this.lettersArr[i].display = true;
 		Letter.toString(correctLetter);
 		console.log("correct letter: " + correctLetter);
 		console.log("find letter display: " + Letter.display);

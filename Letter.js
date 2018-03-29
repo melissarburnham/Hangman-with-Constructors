@@ -1,18 +1,18 @@
 function Letter(letter) {
     this.letter = letter;
     // this.lowerCase = letter.toLowerCase();
-    this.display = true;
+    this.display = false;
     if(this.letter == " "){
         this.display = true;
         return ' ';
     }
 }
  
-Letter.prototype.toString = function(letter){
-    if(!this.display){
-        return "_ "
+Letter.prototype.toString = function(){
+    if(this.display){
+        return this.letter
     } else {
-        return this.letter;
+        return "_";
     }
 }
 
