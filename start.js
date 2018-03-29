@@ -5,11 +5,18 @@ var Word = require("./Word");
 
     var randomWord = wordbank[ Math.floor(Math.random() * wordbank.length)];
     
-    var currentWord = new Word(randomWord);
+    var wordPick = new Word(randomWord);
+    var currentWord = wordPick.wordGuessed();
+    // var currentWordPick = currentWord.toString();
+    // console.log(currentWord);
+
+    
 	
 
 
 
 exports.currentWord = currentWord;
 
-console.log(currentWord.findLetter("u"));
+
+
+// console.log(currentWord.findLetter("u"));

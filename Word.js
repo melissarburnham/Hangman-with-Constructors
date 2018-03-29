@@ -40,27 +40,25 @@ Word.prototype.findLetter = function(letterGuess){
 Word.prototype.wordGuessed = function() {
 	var length = 0;
 	for (var i = 0; i < this.lettersArr.length; i++) {
-		console.log("word guessed Arr: " + this.lettersArr);
 		if (this.lettersArr[i].display) {
 			length++;
-			console.log(length);
+			// console.log(length);
 		}
 	}
 	if (length === this.lettersArr.length) {
 		this.solved = true;
 	}
+	console.log("Current Word: " + this.lettersArr);
 	return this.solved;
 };
-var practice = new Word ("pug");
+// var practice = new Word ("pug");
 // console.log(practice);
 // console.log(this.letters);
 // console.log(this.lettersArr);
-console.log("renderWord function: " + practice.renderWord());
-console.log("findLetter function: " + practice.findLetter('p'));
-console.log("renderWord second: " + practice.renderWord());
-
-
-console.log("findLetter function: " + practice.findLetter("u"));
-console.log("findLetter function: " + practice.findLetter("g"));
-console.log("wordGuessed function: " + practice.wordGuessed());
+// console.log("renderWord function: " + practice.renderWord());
+// console.log("findLetter function: " + practice.findLetter('p'));
+// console.log("renderWord second: " + practice.renderWord());
+// console.log("findLetter function: " + practice.findLetter("u"));
+// console.log("findLetter function: " + practice.findLetter("g"));
+// console.log("wordGuessed function: " + practice.wordGuessed());
 module.exports = Word;
