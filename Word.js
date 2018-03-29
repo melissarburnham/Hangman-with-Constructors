@@ -41,7 +41,7 @@ Word.prototype.wordGuessed = function() {
 	var length = 0;
 	for (var i = 0; i < this.lettersArr.length; i++) {
 		console.log("word guessed Arr: " + this.lettersArr);
-		if (Letter.display) {
+		if (this.lettersArr[i].display) {
 			length++;
 			console.log(length);
 		}
@@ -60,7 +60,7 @@ console.log("findLetter function: " + practice.findLetter('p'));
 console.log("renderWord second: " + practice.renderWord());
 
 
-// console.log("findLetter function: " + practice.findLetter("u"));
-// console.log("findLetter function: " + practice.findLetter("g"));
+console.log("findLetter function: " + practice.findLetter("u"));
+console.log("findLetter function: " + practice.findLetter("g"));
 console.log("wordGuessed function: " + practice.wordGuessed());
 module.exports = Word;
