@@ -12,4 +12,4 @@ var Word = require("./Word");
 
 exports.currentWord = currentWord;
 
-console.log(currentWord.findLetter());
+console.log(currentWord.findLetter("u"));
