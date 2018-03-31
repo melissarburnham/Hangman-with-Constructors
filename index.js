@@ -1,27 +1,27 @@
 
-var inquirer = require("inquirer");
-var Word = require("./Word");
-var Player = require("./Player");
-var Letter = require("./Letter");
-var Start = require("./start");
-var currentPlayer = new Player;
-var newWord;
+const inquirer = require("inquirer");
+const Word = require("./Word");
+const Player = require("./Player");
+const Letter = require("./Letter");
+const Start = require("./start");
+let currentPlayer = new Player;
+let newWord;
 
 function startGame(){
-    inquirer.prompt([
-        {
-            type: "confirm",
-            message: "Do you want to play some hangman?",
-            name: "confirm"
+  inquirer.prompt([
+    {
+      type: "confirm",
+      message: "Do you want to play some hangman?",
+      name: "confirm"
+    }
+    ]).then(function(answers) {
+      if (answers.confirm) {
+        newWord = new Start;
+        gamePlay();
+        } else {
+          return console.log("That's the only game on here! You should play!")
         }
-        ]).then(function(answers) {
-            if (answers.confirm) {
-                newWord = new Start;
-                gamePlay();
-            } else {
-                return console.log("That's the only game on here! You should play!")
-            }
-        });
+    });
 }
 
 
@@ -34,25 +34,25 @@ function gamePlay(){
     // }
 
     if (currentPlayer.guessesLeft > 0){
-        inquirer.prompt([
-            {
-                type: "input",
-                message: "Guess a letter!",
-                name: "userInput"
+      inquirer.prompt([
+        {
+          type: "input",
+          message: "Guess a letter!",
+          name: "userInput"
+        }
+        ]).then(function(answers) {
+           console.log("1: " + newWord.wordPick.wordGuessed());
+           // console.log(newWord.currentWord);
+           console.log("new word: " + newWord.wordPick.findLetter(answers.userInput));
+           if(newWord.wordPick.findLetter(answers.userInput)){
+             console.log("You are correct!");
+             console.log("2: " + newWord.wordPick.wordGuessed());
+             gamePlay();
+            } else {
+              console.log("wrong");
+              gamePlay();
             }
-                ]).then(function(answers) {
-                    console.log("1: " + newWord.randomWord);
-                    // console.log(newWord.currentWord);
-                    console.log("new word: " + newWord.wordPick.findLetter(answers.userInput));
-                    if(newWord.wordPick.findLetter(answers.userInput)){
-                        console.log("You are correct!");
-                        console.log("2: " + newWord.wordGuessed());
-                        gamePlay();
-                    } else {
-                        console.log("wrong");
-                        gamePlay();
-                    }
-                    // User guesses a letter
+                // User guesses a letter
                     // Check to see if guess is a letter
                     // Check to see if guess has already been guessed
                     // Check to see if guess is in the word
@@ -60,10 +60,10 @@ function gamePlay(){
                     // If no, alert "incorrect!" decrease “Guesses Left”
                     // If Guesses Left = 0, game over, update losses, option to play again
                     // If word is guessed, update wins and option to play again
-                });
+            });
     
             //  gamePlay();   
-            }
+        }
     }
     
 startGame();
