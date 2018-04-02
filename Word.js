@@ -2,6 +2,7 @@ const Letter = require("./Letter");
 let correctLetter;
 let length = 0;
 let count = 0;
+
 // let Player = require("./player.js");
 
 function Word(word){
@@ -20,16 +21,16 @@ function Word(word){
 Word.prototype.findLetter = function(letterGuess){
   console.log("LETTERS ARRAY: " + this.lettersArr);
   for(let i = 0; i < this.lettersArr.length; i++){ 
+	let guess = this.lettersArr[i];
     console.log("LETTERS ARR[i].letter: " + this.lettersArr[i].letter);
 	correctLetter = this.lettersArr[i].letter;
 	if(letterGuess === correctLetter){
 	  this.lettersArr[i].display = true;
 	  this.toString(letterGuess);
-	  return true;
-	} else {
-	  return false;
+	  inArr = true;
 	}
   }
+  return inArr;  
 }
 
 //function to determine if all letters were guessed
@@ -47,14 +48,14 @@ Word.prototype.wordGuessed = function() {
   return ("Is this solved? " + this.solved);
 };
 
-const practice = new Word ("pug");
+const practice = new Word ("poodle");
 // console.log(practice);
 // console.log(this.letters);
 // console.log(this.lettersArr);
 // console.log("renderWord function: " + practice.renderWord());
 console.log("findLetter function for P: " + practice.findLetter('p'));
 // // console.log("renderWord second: " + practice.renderWord());
-console.log("findLetter function for U: " + practice.findLetter("u"));
+console.log("findLetter function for U: " + practice.findLetter("o"));
 console.log("findLetter function for G: " + practice.findLetter("g"));
 console.log("wordGuessed function: " + practice.wordGuessed());
 module.exports = Word;
